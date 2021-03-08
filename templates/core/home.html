@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Home page!</h1>
+    <h2>My posts:</h2>
+
+    <!--{{object_list}}-->
+
+    {% for post in object_list %}
+    <ul>
+        <!--    {{post}}-->
+        {% for key, value in post.items %}
+        <b>{{key}}:</b> {{value}}
+        </br>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+{% endblock content%}
