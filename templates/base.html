@@ -12,12 +12,30 @@
 
 </head>
 <body>
-    <h1>Header</h1>
+<div class="wrapper">
+    <div class="header">
+        <ul class="menu">
+            <li class="menu-item"><a href="../home">Home</a></li>
+            <li class="menu-item"><a href="../about">About</a></li>
+        </ul>
+
+        <div class="user">
+            <div class="greeting">
+                Hello, Admin
+                <img class="avatar" src="{% static 'image/avatar.jpg' %}" alt="IMAGE ERROR">
+            </div>
+        </div>
+    </div>
 
     <div class="content">
         {% block content %}{% endblock content %}
     </div>
 
-    <h1>Footer</h1>
+
+    <div class="footer">
+        <p>MIT License</p>
+    </div>
+</div>
 </body>
+
 </html>

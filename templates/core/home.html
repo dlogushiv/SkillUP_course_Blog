@@ -1,20 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-    <h1>Home page!</h1>
-    <h2>My posts:</h2>
+<!--    <h1>Home page!</h1>-->
+<!--    <h2>My posts:</h2>-->
 
-    <!--{{object_list}}-->
+<!--{{object_list}}-->
 
-    {% for post in object_list %}
-    <ul>
-        <!--    {{post}}-->
-        {% for key, value in post.items %}
-        <b>{{key}}:</b> {{value}}
-        </br>
-        {% endfor %}
-    </ul>
-    {% endfor %}
+<!--    {% for post in object_list %}-->
+<!--    <ul>-->
+<!--        &lt;!&ndash;    {{post}}&ndash;&gt;-->
+<!--        {% for key, value in post.items %}-->
+<!--        <b>{{key}}:</b> {{value}}-->
+<!--        </br>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--    {% endfor %}-->
+
+    <div class="content">
+        <div class="posts">
+            {{object_list}}
+            {% for post in object_list %}
+                <div class="post">
+                    <img class="post-img" src="{% static 'image/post_img-1.jpg' %}" alt="IMAGE ERROR">
+                    <p class="post-title">{{post.title}}</p>
+                    <p class="post-body">{{post.body}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
 
 {% endblock content%}

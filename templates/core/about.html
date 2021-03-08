@@ -2,7 +2,28 @@
 <!--<h2>Hello from my blog!</h2>-->
 
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    I am on the about page
+    <div class="about">
+        <div class="information">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut, eaque,
+                odit quia laudantium maiores soluta numquam deserunt error vel, laborum molestias unde at eius
+                animi provident consequuntur facere necessitatibus.</p>
+            <br></br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut, eaque,
+                odit quia laudantium maiores soluta numquam deserunt error vel, laborum molestias unde at eius
+                animi provident consequuntur facere necessitatibus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut, eaque,
+                odit quia laudantium maiores soluta numquam deserunt error vel, laborum molestias unde at eius
+                animi provident consequuntur facere necessitatibus.</p>
+            <br></br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aut, eaque,
+                odit quia laudantium maiores soluta numquam deserunt error vel, laborum molestias unde at eius
+                animi provident consequuntur facere necessitatibus.</p>
+        </div>
+        <div class="photo">
+            <img src="{% static 'image/photo.jpg' %}" alt="IMAGE ERROR">
+        </div>
+    </div>
 {% endblock content%}

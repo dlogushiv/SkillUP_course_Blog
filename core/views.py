@@ -42,5 +42,5 @@ class HomeView(ListView):
     # queryset = Post.objects.values()
     queryset = Post.objects.values('title', 'body')
 
-    def get(self, request):
-        return super().get(request)
+    # def get(self, request):
+    #     return super().get(request)
