@@ -44,5 +44,8 @@ class HomeView(ListView):
     # queryset = Post.objects.values('title', 'body', 'image')
     queryset = Post.objects.all()
 
+    # for sorted view of posts on home page need change queryset
+    # queryset = Post.objects.all().order_by('-updated_at')
+
     # def get(self, request):
     #     return super().get(request)

@@ -19,6 +19,12 @@ class Post(models.Model):
     # blank - value for django forms (admin or other pages), post can be without picture
     author = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='posts')
 
+    # this field must be add at project start, otherwise we need to remove all posts, migrations
+    # and tables in DB (drop schema public CASCADE; create schema public;)
+    # and make migrations again and 'python manage.py createsuperuser'
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.title
 
