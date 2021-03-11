@@ -24,7 +24,7 @@
         <div class="posts">
             {% for post in object_list %}
                 <div class="post">
-                    <img class="post-img" src="{% static 'image/post_img-1.jpg' %}" alt="IMAGE ERROR">
+                    <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
                     <p class="post-title">{{post.title}}</p>
                     <p class="post-body">{{post.body}}</p>
                 </div>

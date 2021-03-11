@@ -12,7 +12,11 @@ class Post(models.Model):
     # id - is automatic field
     title = models.CharField(max_length=100)
     body = models.TextField()
-
+    image = models.ImageField(upload_to='posts/', max_length=120, null=True, blank=True)
+    # upload_to - folder name in folder media, will be created if not exist
+    # max_length - length of file name, type varchar in DB
+    # null - value for DB, can be empty
+    # blank - value for django forms (admin or other pages), post can be without picture
     author = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='posts')
 
     def __str__(self):
