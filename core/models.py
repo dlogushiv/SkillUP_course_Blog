@@ -19,11 +19,11 @@ class Post(models.Model):
     # blank - value for django forms (admin or other pages), post can be without picture
     author = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='posts')
 
-    # this field must be add at project start, otherwise we need to remove all posts, migrations
+    # this fields must be add at project start, otherwise we need to remove all posts, migrations
     # and tables in DB (drop schema public CASCADE; create schema public;)
     # and make migrations again and 'python manage.py createsuperuser'
-    # created_at = models.DateTimeField(auto_now_add=True)
-    # updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -44,6 +44,7 @@ class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='comments', null=True, blank=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     text = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.text
