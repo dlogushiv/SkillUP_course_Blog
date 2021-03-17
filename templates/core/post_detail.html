@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+    <div class="post_detail">
+        <h1>Post detail page</h1>
+        <div class="post_detail_title">{{ post.title }}</div>
+        <img class="post_detail_image" src="{{ post.image.url }}" alt="IMAGE ERROR">
+        <div class="post_detail_body">{{ post.body }}</div>
+    </div>
+
+    <h1>Comments</h1>
+    <div class="post_detail_comments">
+        {% for comment in post.comments.all %}
+            <li>{{ comment.created_at }} | '{{ comment.author }}' | {{ comment.text }}</li>
+        {% endfor %}
+    </div>
+{% endblock content%}

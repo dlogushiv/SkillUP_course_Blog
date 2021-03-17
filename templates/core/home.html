@@ -24,9 +24,13 @@
         <div class="posts">
             {% for post in object_list %}
                 <div class="post">
-                    <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
-                    <p class="post-title">{{post.title}}</p>
-                    <p class="post-body">{{post.body}}</p>
+                    <a href="{% url 'core:post_detail_page' id=post.id%}">
+                        <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
+                        <br>
+                        <p class="post-title">{{post.title}}</p>
+                        <br>
+                        <p class="post-body">{{post.body}}</p>
+                    </a>
                 </div>
             {% endfor %}
         </div>

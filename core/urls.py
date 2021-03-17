@@ -10,7 +10,7 @@ app_name = 'core'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home_page'),
     path('about/', views.AboutView.as_view(), name='about_page'),
-    # path('test/', views.test, name='test_page'),
+    path('post_detail/<int:id>/', views.PostDetailView.as_view(), name='post_detail_page'),
 ]
 # if we have not many applications/pages, we can not to use namespases
 # no need a variable 'app_name = <application name>'

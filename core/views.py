@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView
+from django.views.generic import *  # TemplateView, ListView
 from .models import Post, Comment
 
 # bad practice to use functions
@@ -22,11 +22,11 @@ from .models import Post, Comment
 
 # better is to use classes 'Classy Class-Based Views.' https://ccbv.co.uk
 
-posts = [
-    {'title': 'How to learn Python', 'author': 'admin', 'data': '12345678'},
-    {'title': 'How to learn Java', 'shy': 'admin', 'data': '124587963'},
-    {'title': 'How to learn cmd', 'author': 'admin', 'data': '224857566'},
-]
+# posts = [
+#     {'title': 'How to learn Python', 'author': 'admin', 'data': '12345678'},
+#     {'title': 'How to learn Java', 'shy': 'admin', 'data': '124587963'},
+#     {'title': 'How to learn cmd', 'author': 'admin', 'data': '224857566'},
+# ]
 
 
 class AboutView(TemplateView):
@@ -42,10 +42,25 @@ class HomeView(ListView):
     # queryset = Post.objects.values()
     # queryset = Post.objects.values('title', 'body')
     # queryset = Post.objects.values('title', 'body', 'image')
-    queryset = Post.objects.all()
+    # queryset = Post.objects.all()
 
     # for sorted view of posts on home page need change queryset
-    # queryset = Post.objects.all().order_by('-updated_at')
+    queryset = Post.objects.all().order_by('-updated_at')
 
     # def get(self, request):
     #     return super().get(request)
+
+
+class PostDetailView(DetailView):
+    template_name = 'core/post_detail.html'
+    model = Post
+    pk_url_kwarg = 'id'
+
+# class PostDetailView(TemplateView):
+#     template_name = 'core/post_detail.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         post = Post.objects.get(id=context['id'])
+#         context['post'] = post
+#         return context
