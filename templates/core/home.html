@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Blog - Home page{% endblock %}
+{% block title %}Home page{% endblock %}
 
 {% block content %}
 
@@ -25,8 +25,10 @@
             {% for post in object_list %}
                 <div class="post">
                     <a href="{% url 'core:post_detail_page' id=post.id%}">
-                        <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
-                        <br>
+                        {% if post.image.url is not empty %}
+                            <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
+                            <br>
+                        {% endif %}
                         <p class="post-title">{{post.title}}</p>
                         <br>
                         <p class="post-body">{{post.body}}</p>

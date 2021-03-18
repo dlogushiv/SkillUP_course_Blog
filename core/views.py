@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import *  # TemplateView, ListView
 from .models import Post, Comment
+from .forms import PostForm, CommentForm
+
 
 # bad practice to use functions
 
@@ -56,6 +58,7 @@ class PostDetailView(DetailView):
     model = Post
     pk_url_kwarg = 'id'
 
+
 # class PostDetailView(TemplateView):
 #     template_name = 'core/post_detail.html'
 #
@@ -64,3 +67,19 @@ class PostDetailView(DetailView):
 #         post = Post.objects.get(id=context['id'])
 #         context['post'] = post
 #         return context
+
+class PostCreateView(CreateView):
+    template_name = 'core/post_create.html'
+    model = Post
+    form_class = PostForm
+
+    success_url = '/'
+
+
+class CommentCreateView(CreateView):
+    template_name = 'core/add_comment.html'
+    model = Comment
+    form_class = CommentForm
+    pk_url_kwarg = 'id'
+
+    success_url = ''

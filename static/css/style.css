@@ -9,7 +9,7 @@ p {
 
 a {
     text-decoration: none;
-    column: black;
+    color: black;
 }
 
 .wrapper {
@@ -26,6 +26,28 @@ a {
     background-color: #298db1;
     max-height: 7vh;
     align-items: center;
+    font-size: 24px;
+}
+
+.header_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create_post_btn {
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.add_comment_btn {
+    border: 2px solid #a0a8ab;
+    margin: 45px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #F0FFFF;
     font-size: 24px;
 }
 
@@ -47,7 +69,7 @@ a {
 .avatar {
     max-width: 7vh;
     height: auto;
-    padding: 5px;
+    padding: 10px;
 }
 
 .about {
@@ -107,8 +129,9 @@ a {
 }
 
 .post-title {
+    display: flex;
+    justify-content: center;
     font-size: 24px;
-    text-align: center;
 }
 
 .post-body {
