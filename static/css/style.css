@@ -105,7 +105,7 @@ a {
 }
 
 .content {
-    vertical-align:top;
+    flex-grow: 1
 }
 
 .posts {
@@ -138,6 +138,10 @@ a {
     font-size: 16px;
 }
 
+.post_detail{
+    margin-bottom: 40px
+}
+
 .post_detail_image {
     display: block;
     max-width: 50%;
@@ -152,5 +156,9 @@ a {
 
 .post_detail_body {
     font-size: 18px;
+}
+
+.post_detail_comments{
+    margin-bottom: 40px
 }
 

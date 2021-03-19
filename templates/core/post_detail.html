@@ -13,8 +13,8 @@
         <div class="post_detail_body">{{ post.body }}</div>
     </div>
 
-    <h1>Comments</h1>
     <div class="post_detail_comments">
+        <h1>Comments</h1>
         {% for comment in post.comments.all %}
             <li>{{ comment.created_at }} | '{{ comment.author }}' | {{ comment.text }}</li>
         {% endfor %}
