@@ -5,6 +5,8 @@
 
 {% block content %}
     <div class="post_detail">
+<!--        <button type="submit" action="{% url 'core:post_delete_page' id=post.id %}" class="del_post_btn">Delete post</button>-->
+        <a href="{% url 'core:post_delete_page' id=post.id %}" class="del_post_btn">Delete post</a>
         <h1>Post detail page</h1>
         <div class="post_detail_title">{{ post.title }}</div>
         {% if post.image %}

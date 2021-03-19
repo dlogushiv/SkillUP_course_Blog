@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import *  # TemplateView, ListView
+from django.urls import reverse_lazy
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -72,8 +73,14 @@ class PostCreateView(CreateView):
     template_name = 'core/post_create.html'
     model = Post
     form_class = PostForm
+    success_url = reverse_lazy('core:home_page')
 
-    success_url = '/'
+
+class PostDeleteView(DeleteView):
+    template_name = 'core/post_delete.html'
+    model = Post
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('core:home_page')
 
 
 class CommentCreateView(CreateView):

@@ -12,6 +12,7 @@ urlpatterns = [
     path('about/', views.AboutView.as_view(), name='about_page'),
     path('post_create/', views.PostCreateView.as_view(), name='post_create_page'),
     path('post_detail/<int:id>/', views.PostDetailView.as_view(), name='post_detail_page'),
+    path('post_detail/<int:id>/delete/', views.PostDeleteView.as_view(), name='post_delete_page'),
     path('post_detail/<int:id>/add_comment/', views.CommentCreateView.as_view(), name='add_comment_page'),
 ]
 # if we have not many applications/pages, we can not to use namespases
