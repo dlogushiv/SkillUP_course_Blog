@@ -25,13 +25,13 @@
             {% for post in object_list %}
                 <div class="post">
                     <a href="{% url 'core:post_detail_page' id=post.id%}">
-                        {% if post.image.url is not empty %}
+                        {% if post.image %}
                             <img class="post-img" src="{{ post.image.url }}" alt="IMAGE ERROR">
                             <br>
                         {% endif %}
                         <p class="post-title">{{post.title}}</p>
                         <br>
-                        <p class="post-body">{{post.body}}</p>
+                        <p class="post-body">{{post.body|truncatechars:100}}</p>
                     </a>
                 </div>
             {% endfor %}
