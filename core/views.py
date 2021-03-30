@@ -88,5 +88,4 @@ class CommentCreateView(CreateView):
     model = Comment
     form_class = CommentForm
     pk_url_kwarg = 'id'
-
-    success_url = ''
+    success_url = reverse_lazy('core:post_detail_page')

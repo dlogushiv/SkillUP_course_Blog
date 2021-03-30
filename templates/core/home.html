@@ -3,23 +3,8 @@
 
 {% block title %}Home page{% endblock %}
 
+{% block not_auth_content %}
 {% block content %}
-
-<!--    <h1>Home page!</h1>-->
-<!--    <h2>My posts:</h2>-->
-
-<!--{{object_list}}-->
-
-<!--    {% for post in object_list %}-->
-<!--    <ul>-->
-<!--        &lt;!&ndash;    {{post}}&ndash;&gt;-->
-<!--        {% for key, value in post.items %}-->
-<!--        <b>{{key}}:</b> {{value}}-->
-<!--        </br>-->
-<!--        {% endfor %}-->
-<!--    </ul>-->
-<!--    {% endfor %}-->
-
     <div class="content">
         <div class="posts">
             {% for post in object_list %}
@@ -37,6 +22,5 @@
             {% endfor %}
         </div>
     </div>
-
-
 {% endblock content%}
+{% endblock not_auth_content%}

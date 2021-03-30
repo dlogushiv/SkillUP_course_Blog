@@ -175,3 +175,12 @@ a {
     position: absolute;
     right: 20px;
 }
+
+.login_out_btn{
+    font-size: 18px;
+    /* color: white; */
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}

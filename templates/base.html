@@ -22,19 +22,35 @@
         </ul>
 
         <div class="header_right">
-            <a class="create_post_btn" href="{% url 'core:post_create_page' %}">Create new post</a>
-            <div class="user">
-                <div class="greeting">
-                    Hello, Admin
-                    <img class="avatar" src="{% static 'image/avatar.jpg' %}" alt="IMAGE ERROR">
+            {% if user.is_authenticated %}
+                <a class="create_post_btn" href="{% url 'core:post_create_page' %}">Create new post</a>
+                <div class="user">
+                    <div class="greeting">
+                        Hello, {{ user.username }}
+<!--                        <img class="avatar" src="{% static 'image/avatar.jpg' %}" alt="IMAGE ERROR">-->
+                        <a href="{% url 'logout' %}" class="login_out_btn">Logout</a>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="user">
+                    <div class="greeting">
+                        Hello, please login
+<!--                        <img class="avatar" src="{% static 'image/avatar.jpg' %}" alt="IMAGE ERROR">-->
+                        <a href="{% url 'login' %}" class="login_out_btn">Login</a>
+                    </div>
+                </div>
+            {% endif %}
+
         </div>
     </div>
 
 
     <div class="content">
-        {% block content %}{% endblock content %}
+        {% if user.is_authenticated %}
+            {% block content %}{% endblock content %}
+        {% else %}
+            {% block not_auth_content %}{% endblock not_auth_content %}
+        {% endif %}
     </div>
 
 
